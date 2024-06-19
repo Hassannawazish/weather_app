@@ -5,7 +5,10 @@
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
-        "dev": "nodemon index.js"
+        "dev": "nodemon index.js",
+        "lint": "eslint src/**/*.js",
+        "build": "npm run lint && npx babel src --out-dir dist && npm run optimize",
+        "optimize": "npx terser dist/*.js --output dist/optimized.js"
     },
     "dependencies": {
         "body-parser": "^1.19.0",
@@ -15,6 +18,11 @@
         "mongoose": "^5.12.3"
     },
     "devDependencies": {
-        "nodemon": "^2.0.7"
+        "nodemon": "^2.0.7",
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.3",
+        "babel-preset-env": "^1.7.0",
+        "eslint": "^8.26.0",
+        "terser": "^5.12.1"
     }
 }
