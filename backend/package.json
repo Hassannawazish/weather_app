@@ -6,8 +6,8 @@
     "scripts": {
         "start": "node index.js",
         "dev": "nodemon index.js",
-        "lint": "eslint src/**/*.js",
-        "build": "npm run lint && npx babel src --out-dir dist && npm run optimize",
+        "lint": "eslint ./**/*.js",
+        "build": "npm run lint && npx babel . --out-dir dist && npm run optimize",
         "optimize": "npx terser dist/*.js --output dist/optimized.js"
     },
     "dependencies": {
