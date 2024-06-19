@@ -25,6 +25,28 @@ jobs:
           cd backend
           npm install
 
+      - name: Create ESLint configuration
+        run: |
+          cd backend
+          echo '{
+              "env": {
+                  "browser": true,
+                  "commonjs": true,
+                  "es2021": true,
+                  "node": true
+              },
+              "extends": "eslint:recommended",
+              "parserOptions": {
+                  "ecmaVersion": 12
+              },
+              "rules": {
+                  "indent": ["error", 2],
+                  "linebreak-style": ["error", "unix"],
+                  "quotes": ["error", "single"],
+                  "semi": ["error", "always"]
+              }
+          }' > .eslintrc.json
+
       - name: Build the application
         run: |
           cd backend
