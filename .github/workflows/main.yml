@@ -22,12 +22,12 @@ jobs:
 
       - name: Navigate to backend directory and install npm dependencies
         run: |
-          cd weather_app/backend
+          cd backend
           npm install
 
       - name: Run the backend application
         run: |
-          cd weather_app/backend
+          cd backend
           npm start &
 
       - name: Install Surge
@@ -35,5 +35,5 @@ jobs:
 
       - name: Deploy to Surge
         run: |
-          cd weather_app/backend
+          cd backend
           surge ./ build weatherApp_proelec.surge.sh --token ${{ secrets.SURGE_TOKEN }}
