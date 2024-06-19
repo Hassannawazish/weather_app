@@ -33,9 +33,6 @@ jobs:
       - name: Install Surge
         run: npm install -g surge
 
-      - name: Deploy to Surge
-        env:
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+      - name: Run surge
         run: |
-          cd backend
-          surge --project ./ --domain weatherApp_proelec.surge.sh --token $SURGE_TOKEN
+          surge ./backend/build weatherapp_prodelect.surge.sh --token ${{ secrets.SURGE_TOKEN }}
