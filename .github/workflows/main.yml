@@ -20,14 +20,20 @@ jobs:
         with:
           node-version: 14
 
-      - name: Install npm dependencies
-        run: npm install
+      - name: Navigate to backend directory and install npm dependencies
+        run: |
+          cd weather_app/backend
+          npm install
 
       - name: Run the backend application
-        run: npm start
+        run: |
+          cd weather_app/backend
+          npm start &
 
       - name: Install Surge
         run: npm install -g surge
 
       - name: Deploy to Surge
-        run: surge ./ build weatherApp_proelec.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+        run: |
+          cd weather_app/backend
+          surge ./ build weatherApp_proelec.surge.sh --token ${{ secrets.SURGE_TOKEN }}
