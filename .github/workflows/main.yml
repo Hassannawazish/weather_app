@@ -35,4 +35,4 @@ jobs:
 
       - name: Run surge
         run: |
-          surge ./backend/build weatherapp_prodelect.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+          surge ./backend/build weatherapp_prodelect.surge.sh --token ${{ secrets.SURGE_TOK }}
