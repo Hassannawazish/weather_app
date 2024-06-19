@@ -28,7 +28,7 @@ jobs:
       - name: Build the application
         run: |
           cd backend
-          npm run build  # Adjust if your application uses a different build script
+          npm run build  # Run the build command defined in package.json
 
       - name: Run the backend application
         run: |
@@ -40,7 +40,7 @@ jobs:
 
       - name: Deploy to Surge
         env:
-          SURGE_TOKEN: ${{ secrets.SURGE_TOK }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
         run: |
-          cd backend
-          surge ./build weatherapp_prodelect.surge.sh --token $SURGE_TOKEN
+          cd backend/build
+          surge . weatherapp_prodelect.surge.sh --token $SURGE_TOKEN
