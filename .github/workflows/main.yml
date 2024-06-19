@@ -25,10 +25,10 @@ jobs:
           cd backend
           npm install
 
-      - name: Build the application
+      - name: Run the build script
         run: |
           cd backend
-          npm run build  # Run the build command defined in package.json
+          npm run build  # Run the build script defined in package.json
 
       - name: Run the backend application
         run: |
@@ -42,5 +42,5 @@ jobs:
         env:
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
         run: |
-          cd backend/build
+          cd backend/dist
           surge . weatherapp_prodelect.surge.sh --token $SURGE_TOKEN
